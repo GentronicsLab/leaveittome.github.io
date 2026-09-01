@@ -19,9 +19,10 @@
         body {
             background-image: url('unsure.png');
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
+            /* Zoomed out to 85% and centered so both pathways remain visible */
+            background-size: 85% auto;
+            background-position: center 30%;
+            background-color: #000; /* Dark background behind image borders */
             font-family: Arial, sans-serif;
         }
 
@@ -31,7 +32,6 @@
             top: 8%;
             left: 50%;
             transform: translateX(-50%);
-            /* Responsive font size: scales smoothly between mobile and desktop */
             font-size: clamp(20px, 5vw, 40px);
             background-color: rgba(0, 0, 0, 0.5);
             padding: 12px 20px;
@@ -41,18 +41,17 @@
             max-width: 650px;
         }
 
+        /* Original Button Sizing & Position */
         #redirect-button {
             position: absolute;
-            top: 35%;
+            top: 32%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 24px;
-            padding: 1em 2.5em; /* Larger padding for desktop */
-            white-space: nowrap;
+            font-size: 20px;
         }
 
-        /* Glowing Button Styles */
         button {
+            padding: 0.6em 2em;
             border: none;
             outline: none;
             color: rgb(255, 255, 255);
@@ -64,7 +63,6 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
-            font-weight: bold;
         }
 
         button:before {
@@ -119,12 +117,11 @@
             border-radius: 10px;
         }
 
-        /* Dedicated mobile tweaks for maximum clarity and tap space */
+        /* Mobile adjustment for background scaling */
         @media (max-width: 600px) {
-            #redirect-button {
-                font-size: 22px;
-                padding: 1.2em 2em;
-                width: 85%; /* Fits nicely on small phone screens */
+            body {
+                background-size: contain; /* Shows entire image without cropping on mobile screens */
+                background-position: center 20%;
             }
         }
     </style>
