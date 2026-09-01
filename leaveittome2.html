@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leave it to me</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
         body {
             background-image: url('unsure.png');
             background-repeat: no-repeat;
-            background-size: 100% 100%;
+            background-size: cover;
+            background-position: center center;
             background-attachment: fixed;
+            font-family: Arial, sans-serif;
         }
 
         input[type="text"] {
@@ -16,9 +30,9 @@
             border: 2px solid aqua;
             width: 150px;
             height: 10px;
-            color: black(0, 204, 255);
-            font-size: 20px;
-            font-weight: bold; /* <--- ADD THIS LINE */
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            font-weight: bold;
             padding: 12px 20px;
             border-radius: 9999em;
             margin-bottom: 10px;
@@ -46,7 +60,7 @@
             transform: translate(-50%, -50%);
             display: inline-block;
             text-align: center;
-            font-size: 40px;
+            font-size: clamp(24px, 5vw, 40px);
         }
 
         #choices-form {
@@ -56,25 +70,19 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: #111;
+            padding-bottom: 10px;
+            width: 90%;
+            max-width: 400px;
         }
 
         button#add-choice-btn {
             margin-top: 10px;
-            /* add 10px of margin to the top of the button */
         }
 
-        #choices-form {
-            padding-bottom: 10px;
-            /* add 10px of padding to the bottom of the form */
-        }
-
-
-
-
-
-        /* CSS */
+        /* Compact Glowing Button Styling */
         button {
-            padding: 0.6em 2em;
+            padding: 0.6em 1.8em;
+            font-size: 16px;
             border: none;
             outline: none;
             color: rgb(255, 255, 255);
@@ -86,6 +94,7 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
+            font-weight: bold;
         }
 
         button:before {
@@ -140,9 +149,6 @@
             border-radius: 10px;
         }
 
-
-
-
         @keyframes rotation {
             from {
                 transform: rotate(0deg);
@@ -153,60 +159,32 @@
             }
         }
 
-        #alert-dialog {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 250px;
-            height: 100px;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border: 2px solid aqua;
-            text-align: center;
-            font-size: 30px;
-            border-radius: 9999em;
-            align-items: center;
-            flex-direction: column;
-            grid-template-rows: 1fr auto;
-            align-items: center;
-            text-align: center;
-        }
-
-        #alert-dialog p {
-            text-align: center;
-            position: relative;
-            top: -50%;
-        }
-
-        #alert-dialog button {
-            position: relative;
-            top: -85%;
-        }
-
-        #alert-dialog.show {
-            display: block;
-        }
-
-        #alert-dialogue.show {
-            display: block;
-        }
-
+        #alert-dialog,
         #alert-dialogue {
             display: none;
             position: fixed;
             top: 50%;
             left: 50%;
-            width: 250px;
-            height: 100px;
+            width: 260px;
+            height: auto;
             transform: translate(-50%, -50%);
             background-color: white;
             padding: 20px;
             border: 2px solid aqua;
             text-align: center;
-            font-size: 30px;
-            border-radius: 9999em;
+            font-size: 18px;
+            border-radius: 20px;
+            z-index: 1000;
+        }
+
+        #alert-dialog p {
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        #alert-dialog.show,
+        #alert-dialogue.show {
+            display: block;
         }
 
         .choices-spin {
@@ -232,9 +210,20 @@
             display: none;
             position: absolute;
             bottom: -70px;
-            /* adjust as needed */
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 600px) {
+            button {
+                font-size: 15px;
+                padding: 0.6em 1.4em;
+            }
+
+            #choices-form {
+                top: 30%;
+            }
         }
     </style>
 </head>
@@ -244,18 +233,17 @@
         <div id="choices-container"></div>
         <button id="add-choice-btn" type="button">Add Choice</button>
         <button id="spin-btn" type="button" value="Spin my choices">Leave it to me</button>
-        <div id="spin-box" class="dialogue-box">
-            <!-- <button id="spin-btn"></button> -->
-        </div>
+        <div id="spin-box" class="dialogue-box"></div>
         <div id="choice"></div>
         <div id="alert-dialog">
             <p>Please provide a minimum of two choices</p>
-            <button id="ok-btn">OK</button>
+            <button id="ok-btn" type="button">OK</button>
         </div>
         <div id="alert-playAgainDialog">
-            <button id="play-again-btn">Play Again</button>
+            <button id="play-again-btn" type="button">Play Again</button>
         </div>
-        <script src="leaveittome2.js"></script>
+    </form>
+    <script src="leaveittome2.js"></script>
 </body>
 
 </html>
