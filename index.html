@@ -14,6 +14,10 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
         body {
@@ -42,14 +46,14 @@
         }
 
         #redirect-button {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px; /* Reduced from 24px */
-    padding: 0.6em 1.8em; /* Reduced from 1em 2.5em */
-    white-space: nowrap;
-}
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px; /* Reduced from 24px */
+            padding: 0.6em 1.8em; /* Reduced from 1em 2.5em */
+            white-space: nowrap;
+        }
 
         /* Glowing Button Styles */
         button {
@@ -119,14 +123,26 @@
             border-radius: 10px;
         }
 
+        /* Standard flow footer styling */
+        .footer-text {
+            margin-top: auto;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 6px 14px;
+            border-radius: 6px;
+            z-index: 1;
+        }
+
         /* Dedicated mobile tweaks for maximum clarity and tap space */
         @media (max-width: 600px) {
-    #redirect-button {
-        font-size: 16px; /* Reduced from 22px */
-        padding: 0.8em 1.5em; /* Reduced from 1.2em 2em */
-        width: auto; /* Changed from 85% so it wraps tightly around the text */
-    }
-}
+            #redirect-button {
+                font-size: 16px; /* Reduced from 22px */
+                padding: 0.8em 1.5em; /* Reduced from 1.2em 2em */
+                width: auto; /* Changed from 85% so it wraps tightly around the text */
+            }
         }
     </style>
 </head>
@@ -134,6 +150,10 @@
 <body>
     <h1>Stuck on a decision? Click the button below</h1>
     <button id="redirect-button">Leave it to me</button>
+
+    <!-- Standard flow footer -->
+    <p class="footer-text">Powered by Gentronics Lab</p>
+
     <script src="leaveittome.js"></script>
 </body>
 
