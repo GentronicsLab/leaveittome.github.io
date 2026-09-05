@@ -1,132 +1,153 @@
-<style>
-    * {
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden; /* Prevents scrolling entirely */
-    }
-
-    body {
-        background-image: url('unsure.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 10px;
-    }
-
-    h1 {
-        color: rgb(19, 217, 231);
-        font-size: clamp(18px, 4.5vw, 36px);
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 12px 20px;
-        border-radius: 8px;
-        text-align: center;
-        width: 90%;
-        max-width: 650px;
-        margin-top: 10px;
-    }
-
-    #redirect-button {
-        font-size: 18px;
-        padding: 0.8em 2em;
-        white-space: nowrap;
-    }
-
-    /* Glowing Button Styles */
-    button {
-        border: none;
-        outline: none;
-        color: rgb(255, 255, 255);
-        background: #111;
-        cursor: pointer;
-        position: relative;
-        z-index: 0;
-        border-radius: 10px;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        font-weight: bold;
-    }
-
-    button:before {
-        content: "";
-        background: linear-gradient(45deg,
-                #ff0000,
-                #ff7300,
-                #fffb00,
-                #48ff00,
-                #00ffd5,
-                #002bff,
-                #7a00ff,
-                #ff00c8,
-                #ff0000);
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        background-size: 400%;
-        z-index: -1;
-        filter: blur(5px);
-        -webkit-filter: blur(5px);
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
-        animation: glowing-button-85 20s linear infinite;
-        transition: opacity 0.3s ease-in-out;
-        border-radius: 10px;
-    }
-
-    @keyframes glowing-button-85 {
-        0% {
-            background-position: 0 0;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave it to me</title>
+    <style>
+        * {
+            box-sizing: border-box;
         }
 
-        50% {
-            background-position: 400% 0;
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Disables scrolling */
         }
 
-        100% {
-            background-position: 0 0;
+        body {
+            background-image: url('unsure.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10px;
         }
-    }
 
-    button:after {
-        z-index: -1;
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: #222;
-        left: 0;
-        top: 0;
-        border-radius: 10px;
-    }
+        h1 {
+            color: rgb(19, 217, 231);
+            font-size: clamp(18px, 4.5vw, 36px);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 90%;
+            max-width: 650px;
+            margin-top: 10px;
+        }
 
-    /* Footer text */
-    .footer-text {
-        margin: 0;
-        text-align: center;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.8);
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 6px 14px;
-        border-radius: 6px;
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
         #redirect-button {
-            font-size: 16px;
-            padding: 0.8em 1.5em;
+            font-size: 18px;
+            padding: 0.8em 1.8em;
+            white-space: nowrap;
         }
-    }
-</style>
+
+        /* Glowing Button Styles */
+        button {
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            font-weight: bold;
+        }
+
+        button:before {
+            content: "";
+            background: linear-gradient(45deg,
+                    #ff0000,
+                    #ff7300,
+                    #fffb00,
+                    #48ff00,
+                    #00ffd5,
+                    #002bff,
+                    #7a00ff,
+                    #ff00c8,
+                    #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing-button-85 {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        button:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #222;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        /* Footer Text */
+        .footer-text {
+            margin: 0;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            #redirect-button {
+                font-size: 16px;
+                padding: 0.8em 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Stuck on a decision? Click the button below</h1>
+    
+    <button id="redirect-button">Leave it to me</button>
+    
+    <p class="footer-text">Powered by Gentronics Lab</p>
+
+    <script src="leaveittome.js"></script>
+</body>
+
+</html>
